@@ -1,0 +1,12 @@
+.container {
+  background: black;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    color: yellow;
+    background: #000;
+  }
+}
