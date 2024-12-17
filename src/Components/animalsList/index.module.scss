@@ -1,0 +1,28 @@
+.list {
+  background: #000;
+  width: 100%;
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 5px;
+
+  .card {
+    width: 100%;
+    min-height: 50px;
+    background: #202020;
+    color: rgb(212, 241, 255);
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    .imgC {
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+    }
+    .caption {
+      font-size: 1.3rem;
+    }
+  }
+}
