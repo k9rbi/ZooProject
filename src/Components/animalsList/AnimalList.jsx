@@ -1,14 +1,13 @@
 import React from "react";
 import styles from "./index.module.scss";
-import imageSvg from "../../assets/react.svg";
 
 const AnimalList = () => {
   return (
     <div className={styles.list}>
-      {Array(10000)
+      {Array(50)
         .fill(null)
-        .map(() => (
-          <div className={styles.card}>
+        .map((_, index) => (
+          <div key={index} className={styles.card}>
             <div className={styles.imgC}>
               <img src="https://steamuserimages-a.akamaihd.net/ugc/1876337554557461496/1E9DFA017A38A15A1D01A1FFA9402FC02EA6BCA4/?imw=512&amp;imh=341&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" />
             </div>

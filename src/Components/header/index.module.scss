@@ -1,18 +1,64 @@
 .container {
   background: #1d1d1d36;
   top: 5px;
-  position: fixed;
-  width: calc(100% - 20px);
-  height: 50px;
+  width: 100%;
+  height: 250px;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 5px;
 
-  button {
-    color: yellow;
-    background: #0000007e;
-    backdrop-filter: blur(15px); //Блюрит за кнопками
+  img {
+    width: 100%;
+    object-fit: scale-down;
+  }
+
+  .headerMenu {
+    position: fixed;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+
+    div {
+      flex: 1;
+    }
+
+    button {
+      color: #ebb661;
+      background: #0000007e;
+      backdrop-filter: blur(15px); //Блюрит за кнопками
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .addButton {
+      padding-inline-start: 25px;
+      button {
+        background: transparent;
+        padding: 0px;
+        svg {
+          fill: #b0fb9c;
+        }
+      }
+    }
+
+    .mainMenu {
+      display: flex;
+      gap: 8px;
+      flex: 2;
+      justify-content: center;
+      button {
+        p {
+          padding-top: 3px;
+        }
+
+        svg {
+          fill: #ebb661;
+        }
+      }
+    }
   }
 }
