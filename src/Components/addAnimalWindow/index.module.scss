@@ -1,0 +1,28 @@
+.bg {
+  position: fixed;
+  z-index: 100;
+  background: #00000056;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .AddAnimalWindow {
+    padding: 5px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 15px;
+    .modalHeader {
+      display: flex;
+      justify-content: end;
+      button {
+        background: transparent;
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}
