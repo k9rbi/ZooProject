@@ -1,0 +1,29 @@
+.bg {
+  top: 0%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #00000028;
+  z-index: 100;
+  align-items: center;
+  .Window {
+    padding: 5px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 15px;
+    .Header {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      button {
+        background: transparent;
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}
