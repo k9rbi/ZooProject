@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { Icon28CancelCircleFillRed } from "@vkontakte/icons";
+import useCount from "../../hooks/useCount";
 
 const AnimalModalWindow = ({ setClose, index }) => {
+  const { count, plus } = useCount();
+
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
+
   return (
     <div className={styles.bg}>
       <div className={styles.Window}>
@@ -11,7 +18,10 @@ const AnimalModalWindow = ({ setClose, index }) => {
             <Icon28CancelCircleFillRed />
           </button>
         </div>
-        <div className={styles.index}>{index}</div>
+        <div className={styles.index}>
+          {index}
+          <button onClick={plus}>{count}</button>
+        </div>
       </div>
     </div>
   );
