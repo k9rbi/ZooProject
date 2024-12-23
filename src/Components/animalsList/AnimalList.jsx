@@ -22,12 +22,18 @@ const AnimalList = () => {
 
   return (
     <>
-      {animalModalOpen && (
-        <AnimalModalWindow
-          setClose={setAnimalModalOpen}
-          index={animalModalOpen}
-        />
-      )}
+      {animalList &&
+        animalList.map(
+          (animal, id) =>
+            animalModalOpen && (
+              <AnimalModalWindow
+                setClose={setAnimalModalOpen}
+                index={animalModalOpen}
+                animal={animal}
+                id={id}
+              />
+            )
+        )}
       <div className={styles.list}>
         {animalList &&
           animalList.map((animal, index) => (
