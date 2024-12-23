@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 
 import React from "react";
 
-const AnimalCard = ({ index, setAnimalModalOpen }) => {
+const AnimalCard = ({ index, setAnimalModalOpen, animal }) => {
   return (
     <div
       key={index}
@@ -10,13 +10,20 @@ const AnimalCard = ({ index, setAnimalModalOpen }) => {
       onClick={() => setAnimalModalOpen(index + 1)}
     >
       <div className={styles.imgC}>
-        <img src="https://steamuserimages-a.akamaihd.net/ugc/1876337554557461496/1E9DFA017A38A15A1D01A1FFA9402FC02EA6BCA4/?imw=512&amp;imh=341&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true" />
+        <div
+          style={{
+            backgroundImage: `url(http://localhost:3005/getImage/${animal.image})`,
+          }}
+          className={styles.bgImg}
+        />
+
+        <img
+          src={`http://localhost:3005/getImage/${animal.image}`}
+          alt="Load"
+        />
       </div>
-      <div className={styles.caption}>Имя животинки</div>
-      <div className={styles.description}>
-        Что-то о животинке, её вес, рост, возраст, привычки, группа крови на
-        рукаве мой порядковый
-      </div>
+      <div className={styles.caption}>{animal.name}</div>
+      <div className={styles.description}>{animal.description}</div>
     </div>
   );
 };
