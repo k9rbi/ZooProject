@@ -7,7 +7,7 @@ const AnimalCard = ({ index, setAnimalModalOpen, animal }) => {
     <div
       key={index}
       className={styles.card}
-      onClick={() => setAnimalModalOpen(index + 1)}
+      onClick={() => setAnimalModalOpen(animal)}
     >
       <div className={styles.imgC}>
         <div
