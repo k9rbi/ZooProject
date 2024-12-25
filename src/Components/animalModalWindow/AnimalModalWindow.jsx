@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 import { Icon28CancelCircleFillRed } from "@vkontakte/icons";
 import useCount from "../../hooks/useCount";
+import { motion } from "framer-motion";
 
 const AnimalModalWindow = ({ setClose, open, animal }) => {
   const modalRef = useRef(null);
@@ -31,8 +32,19 @@ const AnimalModalWindow = ({ setClose, open, animal }) => {
   }, [open]);
 
   return (
-    <div className={styles.bg}>
-      <div ref={modalRef} className={styles.Window}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={styles.bg}
+    >
+      <motion.div
+        initial={{ scale: "50%" }}
+        animate={{ scale: "100%" }}
+        exit={{ scale: "50%" }}
+        ref={modalRef}
+        className={styles.Window}
+      >
         <div className={styles.Header}>
           <div className={styles.name}>{animal.name}</div>
           <button onClick={() => setClose(null)}>
@@ -73,8 +85,8 @@ const AnimalModalWindow = ({ setClose, open, animal }) => {
           <div>Описание</div>
           <p>{animal.description}</p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

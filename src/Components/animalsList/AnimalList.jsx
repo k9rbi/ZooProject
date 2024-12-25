@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import AnimalModalWindow from "../animalModalWindow/AnimalModalWindow";
 import AnimalCard from "../animalСard/AnimalCard";
 import axios from "axios";
+import { AnimatePresence } from "framer-motion";
 
 const AnimalList = () => {
   const [animalModalOpen, setAnimalModalOpen] = useState(null);
@@ -22,13 +23,16 @@ const AnimalList = () => {
 
   return (
     <>
-      {animalModalOpen && (
-        <AnimalModalWindow
-          setClose={setAnimalModalOpen}
-          open={animalModalOpen}
-          animal={animalModalOpen}
-        />
-      )}
+      <AnimatePresence>
+        {animalModalOpen && (
+          <AnimalModalWindow
+            setClose={setAnimalModalOpen}
+            open={animalModalOpen}
+            animal={animalModalOpen}
+          />
+        )}
+      </AnimatePresence>
+
       <div className={styles.list}>
         {animalList &&
           animalList.map((animal, index) => (
