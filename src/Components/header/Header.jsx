@@ -10,6 +10,7 @@ import { Bear } from "../../svg/Bear";
 import { DogLegg } from "../../svg/DogLegg";
 import { AddButton } from "../../svg/AddButton";
 import AddAnimalWindow from "../addAnimalWindow/AddAnimalWindow";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [modalWindowOpen, setModalWindowOpen] = useState(false);
@@ -21,7 +22,14 @@ const Header = () => {
   ];
   return (
     <>
-      {modalWindowOpen && <AddAnimalWindow setClose={setModalWindowOpen} />}
+      <AnimatePresence>
+        {modalWindowOpen && (
+          <AddAnimalWindow
+            setClose={setModalWindowOpen}
+            open={modalWindowOpen}
+          />
+        )}
+      </AnimatePresence>
       <div className={styles.container}>
         <img src={logoHeader} />
         <div className={styles.headerMenu}>

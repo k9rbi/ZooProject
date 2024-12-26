@@ -1,89 +1,47 @@
-.bg {
-  top: 0%;
-  position: fixed;
+.container {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: #00000028;
-  z-index: 100;
-  align-items: center;
+  flex-direction: column;
 
-  .Window {
-    padding: 5px;
-    box-sizing: border-box;
-    min-width: 300px;
-    min-height: 200px;
-    max-width: 800px;
-    background: white;
-    border-radius: 15px;
-
-    .description {
-      padding: 6px;
-      color: white;
-      background: #79d063;
-      border-radius: 10px;
+  .animalInfo {
+    display: flex;
+    gap: 10px;
+    .image {
+      min-width: 300px;
+      max-width: 350px;
+      img {
+        width: 100%;
+        border-radius: 12px;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
       div {
-        font-size: 12px;
-      }
-    }
-    .Header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0px 5px;
-      box-sizing: border-box;
-      align-items: center;
-      border-bottom: 1px solid lightgray;
-
-      .name {
-        font-weight: bolder;
-        font-size: 1.25rem;
-        color: #79d063;
-      }
-
-      button {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        height: 40px;
-        width: 40px;
-      }
-    }
-    .content {
-      display: flex;
-      padding-block: 10px;
-      gap: 10px;
-      .image {
-        min-width: 300px;
-        max-width: 350px;
-        img {
-          width: 100%;
-          border-radius: 12px;
-        }
-      }
-      .info {
-        display: flex;
-        flex-direction: column;
         gap: 5px;
+        align-items: center;
         div {
-          display: flex;
-          gap: 5px;
-          align-items: center;
-          div {
-            font-weight: 800;
-            font-size: 13px;
-            padding: 3px;
-            border-radius: 5px;
-            color: rgb(31, 31, 31);
-            background-color: #79d063;
-          }
-          p {
-            font-size: 15px;
-          }
+          font-weight: 800;
+          font-size: 13px;
+          padding: 3px;
+          border-radius: 5px;
+          color: rgb(31, 31, 31);
+          background-color: #79d063;
+        }
+        p {
+          font-size: 15px;
         }
       }
+    }
+  }
+  .description {
+    padding: 6px;
+    color: white;
+    background: #79d063;
+    border-radius: 10px;
+    div {
+      font-size: 14px;
     }
   }
 }

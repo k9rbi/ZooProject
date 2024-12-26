@@ -1,57 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 import { Icon28CancelCircleFillRed } from "@vkontakte/icons";
-import useCount from "../../hooks/useCount";
+
 import { motion } from "framer-motion";
+import { useBlockScroll } from "../../hooks/useBlockScroll";
+import { useClickOutside } from "../../hooks/useClickOutside";
+import { ModalContainer } from "../ui/modal/ModalContainer";
 
 const AnimalModalWindow = ({ setClose, open, animal }) => {
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    const clickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setClose(null);
-        console.log(open);
-      }
-    };
-    window.addEventListener("mouseup", clickOutside);
-    return () => {
-      window.removeEventListener("mouseup", clickOutside);
-    };
-  }, [setClose]);
+  useClickOutside(modalRef, setClose);
 
-  useEffect(() => {
-    if (open) {
-      document.body.classList.add("blockScroll");
-    } else {
-      document.body.classList.remove("blockScroll");
-    }
-    return () => {
-      document.body.classList.remove("blockScroll");
-    };
-  }, [open]);
+  useBlockScroll(open);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className={styles.bg}
-    >
-      <motion.div
-        initial={{ scale: "50%" }}
-        animate={{ scale: "100%" }}
-        exit={{ scale: "50%" }}
-        ref={modalRef}
-        className={styles.Window}
-      >
-        <div className={styles.Header}>
-          <div className={styles.name}>{animal.name}</div>
-          <button onClick={() => setClose(null)}>
-            <Icon28CancelCircleFillRed />
-          </button>
-        </div>
-        <div className={styles.content}>
+    <ModalContainer setClose={setClose} open={open} headerName={animal.name}>
+      <div className={styles.container}>
+        <div className={styles.animalInfo}>
           <div className={styles.image}>
             <img
               src={`http://localhost:3005/getImage/${animal.image}`}
@@ -81,12 +47,14 @@ const AnimalModalWindow = ({ setClose, open, animal }) => {
             </div>
           </div>
         </div>
+
         <div className={styles.description}>
-          <div>Описание</div>
-          <p>{animal.description}</p>
+          <div>
+            <p>{animal.description}</p>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </ModalContainer>
   );
 };
 

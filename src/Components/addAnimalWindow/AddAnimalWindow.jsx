@@ -1,18 +1,26 @@
 import React from "react";
 import styles from "./index.module.scss";
 import { Icon28CancelCircleFillRed } from "@vkontakte/icons";
+import { ModalContainer } from "../ui/modal/ModalContainer";
+import { UpLoadImage } from "../upLoadImage/UpLoadImage";
 
-const AddAnimalWindow = ({ setClose }) => {
+const AddAnimalWindow = ({ setClose, open }) => {
   return (
-    <div className={styles.bg}>
-      <div className={styles.AddAnimalWindow}>
-        <div className={styles.modalHeader}>
-          <button onClick={() => setClose(false)}>
-            <Icon28CancelCircleFillRed />
-          </button>
+    <ModalContainer
+      setClose={setClose}
+      open={open}
+      headerName={"Добавить зверюшку"}
+    >
+      <div className={styles.conteiner}>
+        <UpLoadImage />
+        <div className={styles.inputs}>
+          <input placeholder="Кличка" />
+          <input type="date" placeholder="Дата поступления" />
+          <input placeholder="Статус" />
+          <textarea name="Описание животного"></textarea>
         </div>
       </div>
-    </div>
+    </ModalContainer>
   );
 };
 
